@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterModule, RouterOutlet } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports:[RouterModule,RouterOutlet],
+  imports:[RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'AngularPath';
@@ -16,4 +17,5 @@ export class AppComponent {
   onLoadView(){
     this.router.navigate(["/view"]);
   }
+
 }

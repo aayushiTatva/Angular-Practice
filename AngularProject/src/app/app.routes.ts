@@ -1,21 +1,13 @@
 import { Routes } from '@angular/router';
-import { CreateComponent } from './create/create.component';
-import { IndexComponent } from './index/index.component';
-import { EditComponent } from './edit/edit.component';
+import { CreateComponent } from './post/create/create.component';
+import { IndexComponent } from './post/index/index.component';
+import { EditComponent } from './post/edit/edit.component';
 import { ViewComponent } from './post/view/view.component';
 
-export const routes: Routes = [{
-    path: "", redirectTo: "index", pathMatch: 'full'},
-    {
-        path: "create", component: CreateComponent
-    },
-    {
-        path: "index", component: IndexComponent
-    },
-    {
-        path: "edit", component: EditComponent
-    },
-    {
-        path: "view", component: ViewComponent
-    }
+export const routes: Routes = [
+    { path: '', redirectTo: 'post/index', pathMatch: 'full'},
+      { path: 'post/index', component: IndexComponent },
+      { path: 'post/:postId/view', component: ViewComponent },
+      { path: 'post/create', component: CreateComponent },
+      { path: 'post/:postId/edit', component: EditComponent } 
 ];

@@ -1,20 +1,2 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <div class="navbar navbar-default">
-        <ul class="nav navbar-nav">
-          <li role="navigate" class="active" routerLinkActive="active"><a routerLink="/index">Index</a></li>
-          <li role="navigate" routerLinkActive="active"><a routerLink="/create">Create</a></li>
-          <li role="navigate" routerLinkActive="active"><a routerLink="/edit">Edit</a></li>
-          <li role="navigate" routerLinkActive="active"><a routerLink="/view">View</a></li>
-          <button class="btn btn-primary" (click)="onLoadView()">View</button>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+
+<router-outlet></router-outlet>
