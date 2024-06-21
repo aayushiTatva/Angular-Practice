@@ -1,0 +1,22 @@
+<p>category-edit works!</p>
+<div class="container">
+    <h1 class="text-center">Edit new post here</h1>
+    <a href="#" routerLink="/post/index" class="btn btn-info m-2">Back</a>
+    <form>
+        <div class="form-group ms-2 col-3">
+            <label for="title">Title:</label>
+            <input type="text" id="title" formControlName="title" class="form-control">
+            <div class="alert alert-danger">
+                <div>Title is required</div>
+            </div>
+        </div>
+        <div class="form-group ms-2 col-5">
+            <label for="body">Body:</label>
+            <input type="text" id="body" formControlName="body" class="form-control">
+            <div class="alert alert-danger">
+                <div>Post is required</div>
+            </div>
+        </div>
+        <button class="btn btn-primary m-2" type="submit">Submit</button>
+    </form>
+</div>

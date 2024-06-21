@@ -1,0 +1,37 @@
+<p>supplier-list works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <strong>Supplier List</strong>
+    </div>
+    <a [routerLink]="['/supplier/', 'create']"  class="btn btn-primary m-2 alogn-self-right">Add</a>
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>ContactNumber</th>
+                    <th width="250px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Supplier.id</td>
+                    <td>Supplier.FirstName</td>
+                    <td>Supplier.LastName</td>
+                    <td>Supplier.Address</td>
+                    <td>Supplier.City</td>
+                    <td>Supplier.ContactNumber</td>
+                    <td>
+                    <a [routerLink]="['/supplier/', 'detail']"  class="btn btn-info m-2">View</a>
+                    <a [routerLink]="['/supplier/', 'edit']"  class="btn btn-primary m-2">Edit</a>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
