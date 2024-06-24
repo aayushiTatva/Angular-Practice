@@ -3,8 +3,8 @@
     <div class="row">
         <strong>Order List</strong>
     </div>
-    <a [routerLink]="['/order/', 'create']"  class="btn btn-primary m-2 alogn-self-right">Add</a>
-    <div class="card">
+    <a [routerLink]="['/order/', 'create']"  class="btn btn-primary m-2 float-end">Add</a>
+    <div class="card mt-5">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -26,7 +26,7 @@
                     <td>Supplier.City</td>
                     <td>Supplier.ContactNumber</td>
                     <td>
-                    <a [routerLink]="['/order/', 'detail']"  class="btn btn-info m-2">View</a>
+                    <a [routerLink]="['/order/', 'detail']"  class="btn btn-info text-white m-2">View</a>
                     <a [routerLink]="['/order/', 'edit']"  class="btn btn-primary m-2">Edit</a>
                     <button type="button" class="btn btn-danger">Delete</button>
                     </td>

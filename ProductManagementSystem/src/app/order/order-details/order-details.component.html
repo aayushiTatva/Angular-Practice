@@ -1,23 +1,31 @@
 <p>order-details works!</p>
 <div class="container">
-    <h1 class="text-center">View Product</h1>
-    <a href="#" routerLink="/product/list" class="btn btn-info">Back</a>
-    <div>
-        <strong>Id: Product.id</strong>
+    <div class="row ">
+        <strong>Order Details</strong>
     </div>
-    <div>
-        <p>Name: Product.name</p>
-    </div>
-    <div>
-        <p>Price: Product.price</p>
-    </div>
-    <div>
-        <p>Quantity: Product.quantity</p>
-    </div>
-    <div>
-        <p>Category: Product.category</p>
-    </div>
-    <div>
-        <p>Supplier: Product.supplier</p>
+    <a [routerLink]="['/order/', 'list']"  class="btn btn-primary float-end">Back</a>
+    <strong>Order</strong>
+    <div class="card mt-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Category</th>
+                    <th>Supplier</th>
+                    <th>Price</th>
+                    <th>OrderDate</th>
+                    <th>DeliveryDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Order.id</td>
+                    <td>Order.category</td>
+                    <td>Order.price</td>
+                    <td>Order.orderdate</td>
+                    <td>Order.deliverydate</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

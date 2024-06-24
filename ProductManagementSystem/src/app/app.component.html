@@ -1,8 +1,8 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>
+<!-- <app-header (featureSelected)="onNavigate($event)"></app-header> -->
 
-<router-outlet>
-    <app-product-list *ngIf="loadedFeature === 'product'"></app-product-list>
-<app-category-list *ngIf="loadedFeature === 'category'"></app-category-list>
-<app-supplier-list *ngIf="loadedFeature === 'supplier'"></app-supplier-list>
-<app-order-list *ngIf="loadedFeature === 'order'"></app-order-list>
-</router-outlet>
+<app-header></app-header>
+<router-outlet></router-outlet>
+    <!-- <app-product-list *ngIf="loadedFeature === 'product'"></app-product-list>
+<app-category-list *ngIf="loadedFeature === 'category'"></app-category-list> -->
+<!-- <app-supplier-list *ngIf="loadedFeature === 'supplier'"></app-supplier-list>
+<app-order-list *ngIf="loadedFeature === 'order'"></app-order-list> -->

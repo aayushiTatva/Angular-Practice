@@ -3,8 +3,8 @@
     <div class="row">
         <strong>Category List</strong>
     </div>
-    <a [routerLink]="['/category/', 'create']"  class="btn btn-primary m-2 alogn-self-right">Add</a>
-    <div class="card">
+    <a [routerLink]="['/category/', 'create']"  class="btn btn-primary float-end">Add</a>
+    <div class="card mt-5">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -18,7 +18,7 @@
                     <td>Category.id</td>
                     <td>Category.name</td>
                     <td>
-                    <a [routerLink]="['/category/', 'detail']"  class="btn btn-info m-2">View</a>
+                    <a [routerLink]="['/category/', 'detail']"  class="btn btn-info text-white m-2">View</a>
                     <a [routerLink]="['/category/', 'edit']"  class="btn btn-primary m-2">Edit</a>
                     <button type="button" class="btn btn-danger">Delete</button>
                     </td>

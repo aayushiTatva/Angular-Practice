@@ -17,7 +17,7 @@ import { OrderEditComponent } from './order/order-edit/order-edit.component';
 import { OrderDetailsComponent } from './order/order-details/order-details.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '', pathMatch: 'full'},
+    { path: '', redirectTo: 'product/list', pathMatch: 'full'},
     {path: 'product/list' ,component: ProductListComponent},
     {path: 'product/create' ,component: ProductCreateComponent},
     {path: 'product/edit' ,component: ProductEditComponent},

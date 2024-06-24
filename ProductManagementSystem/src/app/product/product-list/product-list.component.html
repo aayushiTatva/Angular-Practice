@@ -2,7 +2,7 @@
     <div class="row">
         <strong>Product List</strong>
     </div>
-    <a [routerLink]="['/product/', 'create']"  class="btn btn-primary m-2 alogn-self-right">Add</a>
+    <a [routerLink]="['/product/', 'create']"  class="btn btn-primary m-2 align-self-right">Add</a>
     <div class="card">
         <table class="table table-striped">
             <thead>
@@ -25,12 +25,15 @@
                     <td>Product.category</td>
                     <td>Product.supplier</td>
                     <td>
-                    <a [routerLink]="['/product/', 'detail']"  class="btn btn-info m-2">View</a>
-                    <a [routerLink]="['/product/', 'edit']"  class="btn btn-primary m-2">Edit</a>
+                    <a [routerLink]="['/product/','detail']"  class="btn btn-info text-white m-2">View</a>
+                    <a [routerLink]="['/product/','edit']"  class="btn btn-primary m-2">Edit</a>
                     <button type="button" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <p *ngFor="let product of products">
+            {{product.products}}
+        </p>
     </div>
 </div>
