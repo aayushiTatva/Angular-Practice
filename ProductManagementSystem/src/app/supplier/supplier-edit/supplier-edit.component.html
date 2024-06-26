@@ -4,46 +4,31 @@
         <h6 class="text-center">Edit supplier details</h6>
     </div>
     <a href="#" routerLink="/supplier/list" class="btn btn-primary float-end">Back</a>
-    <form class="mt-5">
+    <form [formGroup]="form"  (ngSubmit)="submit()"class="mt-5">
         <div class="row d-flex mb-3">
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="firstname">FirstName:</label>
-                <input type="text" id="firstname" formControlName="firstname" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="firstname" formControlName="firstName" class="form-control" [ngModel]="supplier.firstName">
             </div>
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="lastname">LastName:</label>
-                <input type="text" id="lastname" formControlName="lastname" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="lastname" formControlName="lastName" class="form-control" [ngModel]="supplier.lastName">
             </div>
         </div>
         <div class="row d-flex mb-3">
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="contactnumber">ContactNo:</label>
-                <input type="text" id="contactnumber" formControlName="contactnumber" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="contactnumber" formControlName="contactNumber" class="form-control" [ngModel]="supplier.contactNumber">
             </div>
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="address">Address:</label>
-                <input type="text" id="address" formControlName="address" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="address" formControlName="address" class="form-control" [ngModel]="supplier.address">
             </div>
         </div>
         <div class="row d-flex mb-3">
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="city">City:</label>
-                <input type="text" id="city" formControlName="city" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="city" formControlName="city" class="form-control" [ngModel]="supplier.city">
             </div>
         </div>
         <button class="btn btn-primary m-2" type="submit">Submit</button>

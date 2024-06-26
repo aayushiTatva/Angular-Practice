@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-list',
@@ -11,18 +13,21 @@ import { RouterLink } from '@angular/router';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-products: any=[];
-apiUrl="http://localhost:5086/";
+products: Product[]= [];
 
-constructor(private http:HttpClient){};
+constructor(public productservice: ProductService){};
 
-ngOnInit(){
-  this.getproducts();
+ngOnInit(): void {
+  this.productservice.getAll().subscribe((data: Product[])=>{
+    this.products = data;
+    console.log(this.products);
+  })  
 }
 
-getproducts(){
-  this.http.get(this.apiUrl+"api/"+"CategoryController/"+"Get_Categories").subscribe((res) => {
-    this.products=res;
+ deletePost(id: number){
+  this.productservice.delete(id).subscribe(res => {
+    this.products = this.products.filter(item => item.id !== id);
+    console.log("Product deleted successfully");
   })
-}
+ } 
 }

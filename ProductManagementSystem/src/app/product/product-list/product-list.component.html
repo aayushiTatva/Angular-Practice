@@ -17,23 +17,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Product.id</td>
-                    <td>Product.name</td>
-                    <td>Product.price</td>
-                    <td>Product.quantity</td>
-                    <td>Product.category</td>
-                    <td>Product.supplier</td>
+                <tr *ngFor="let item of products">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.inStock}}</td>
+                    <td>{{item.categoryName}}</td>
+                    <td>{{item.supplierName}}</td>
                     <td>
-                    <a [routerLink]="['/product/','detail']"  class="btn btn-info text-white m-2">View</a>
-                    <a [routerLink]="['/product/','edit']"  class="btn btn-primary m-2">Edit</a>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <a [routerLink]="['/product/',item.id,'detail']"  class="btn btn-info text-white m-2">View</a>
+                    <a [routerLink]="['/product/',item.id,'edit']"  class="btn btn-primary m-2">Edit</a>
+                    <button type="button" (click)="deletePost(item.id)" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <p *ngFor="let product of products">
-            {{product.products}}
-        </p>
     </div>
 </div>

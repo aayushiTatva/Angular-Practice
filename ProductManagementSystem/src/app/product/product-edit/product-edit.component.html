@@ -4,46 +4,41 @@
         <h6 class="text-center">Edit product</h6>
     </div>
     <a href="#" routerLink="/product/list" class="btn btn-primary float-end">Back</a>
-    <form class="mt-5">
+    <form [formGroup]="form" (ngSubmit)="submit()"class="mt-5">
         <div class="row d-flex mb-3">
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="name">Name:</label>
-                <input type="text" id="name" formControlName="name" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="name" formControlName="name" class="form-control" [ngModel]="product.name">
             </div>
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="price">Price:</label>
-                <input type="text" id="price" formControlName="price" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="price" formControlName="price" class="form-control" [ngModel]="product.price">
             </div>
         </div>
         <div class="row d-flex mb-3">
             <div class="form-group col-6 d-flex">
                 <label class="m-2" for="quantity">Quantity:</label>
-                <input type="text" id="quantity" formControlName="quantity" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="quantity" formControlName="inStock" class="form-control" [ngModel]="product.inStock">
             </div>
             <div class="form-group col-6 d-flex">
                 <label class="m-2"for="category">Category:</label>
-                <select class="form-select shadow-none" data-allow-clear="true" tabindex="-1" >
-                    <option value="">Stationary</option>
-                    <option value="">Electronics</option>
+                <select class="form-select shadow-none"  [ngModel]="product.categoryName">
+                    <option *ngFor="let item of category" [value]="item.id">{{item.name}}</option>
                 </select>
+
+                <label class="m-2" for="category">Category:</label>
+                <input type="text" id="category" formControlName="categoryId" class="form-control" [ngModel]="product.categoryId">
             </div>
         </div>
         <div class="row d-flex mb-3">
             <div class="form-group col-6 d-flex">
-                <label class="m-2"for="supplier">Supplier:</label>
+                <!-- <label class="m-2"for="supplier">Supplier:</label>
                 <select class="form-select shadow-none" data-allow-clear="true" tabindex="-1" >
                     <option value="">Stationary</option>
                     <option value="">Electronics</option>
-                </select>
+                </select> -->
+                <label class="m-2" for="supplier">Supplier:</label>
+                <input type="text" id="supplier" formControlName="supplierId" class="form-control" [ngModel]="product.supplierId">
             </div>
         </div>
         <button class="btn btn-primary m-2" type="submit">Submit</button>

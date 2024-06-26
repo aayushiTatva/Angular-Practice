@@ -4,7 +4,7 @@
         <strong>Category List</strong>
     </div>
     <a [routerLink]="['/category/', 'create']"  class="btn btn-primary float-end">Add</a>
-    <div class="card mt-5">
+    <div class="card m-5">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -14,13 +14,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Category.id</td>
-                    <td>Category.name</td>
+                <tr *ngFor="let item of category">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
                     <td>
-                    <a [routerLink]="['/category/', 'detail']"  class="btn btn-info text-white m-2">View</a>
-                    <a [routerLink]="['/category/', 'edit']"  class="btn btn-primary m-2">Edit</a>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                        <a [routerLink]="['/category/',item.id, 'detail']"  class="btn btn-info text-white m-2">View</a>
+                        <a [routerLink]="['/category/',item.id, 'edit']"  class="btn btn-primary m-2">Edit</a>
+                        <button type="button" (click)="deletePost(item.id)" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             </tbody>

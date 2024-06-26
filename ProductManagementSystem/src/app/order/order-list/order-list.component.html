@@ -9,26 +9,18 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>ContactNumber</th>
+                    <th>OrderDate</th>
                     <th width="250px">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Supplier.id</td>
-                    <td>Supplier.FirstName</td>
-                    <td>Supplier.LastName</td>
-                    <td>Supplier.Address</td>
-                    <td>Supplier.City</td>
-                    <td>Supplier.ContactNumber</td>
+                <tr *ngFor="let item of order">
+                    <td>{{item.id}}</td>
+                    <td>{{item.orderDate}}</td>
                     <td>
-                    <a [routerLink]="['/order/', 'detail']"  class="btn btn-info text-white m-2">View</a>
-                    <a [routerLink]="['/order/', 'edit']"  class="btn btn-primary m-2">Edit</a>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <a [routerLink]="['/order/', item.id,'detail']"  class="btn btn-info text-white m-2">View</a>
+                    <a [routerLink]="['/order/',item.id, 'edit']"  class="btn btn-primary m-2">Edit</a>
+                    <button type="button" (click)="deletePost(item.id)" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             </tbody>

@@ -1,51 +1,41 @@
-<p>order-edit works!</p>
+<p>product-edit works!</p>
 <div class="container">
     <div class="row">
-        <h6 class="text-center">Create Order</h6>
+        <h6 class="text-center">Edit product</h6>
     </div>
-    <a href="#" routerLink="/order/list" class="btn btn-primary float-end">Back</a>
-    <form class="mt-5">
+    <a href="#" routerLink="/product/list" class="btn btn-primary float-end">Back</a>
+    <form [formGroup]="form" (ngSubmit)="submit()"class="mt-5">
         <div class="row d-flex mb-3">
-            <div class="form-group col-4 d-flex">
-                <label class="m-2" for="product">Product:</label>
-                <input type="text" id="product" formControlName="product" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+            <div class="form-group col-6 d-flex">
+                <label class="m-2" for="name">Id:</label>
+                <input type="text" id="name" formControlName="id" class="form-control" [ngModel]="order.id">
             </div>
-            <div class="form-group col-4 d-flex">
-                <label class="m-2" for="supplier">Supplier:</label>
-                <input type="text" id="supplier" formControlName="supplier" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
-            </div>
-        </div>
-        <div class="row d-flex mb-3">
-            <div class="form-group col-4 d-flex">
+            <div class="form-group col-6 d-flex">
                 <label class="m-2" for="price">Price:</label>
-                <input type="text" id="price" formControlName="price" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
-            </div>
-            <div class="form-group col-4 d-flex">
-                <label class="m-2" for="orderdate">OrderDate:</label>
-                <input type="text" id="orderdate" formControlName="orderdate" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+                <input type="text" id="price" formControlName="productName" class="form-control" [ngModel]="order.productName">
             </div>
         </div>
         <div class="row d-flex mb-3">
-            <div class="form-group col-4 d-flex">
-                <label class="m-2" for="deliverydate">DeliveryDate:</label>
-                <input type="text" id="deliverydate" formControlName="deliverydate" class="form-control">
-                <!-- <div class="alert alert-danger">
-                    <div>Post is required</div>
-                </div> -->
+            <div class="form-group col-6 d-flex">
+                <label class="m-2" for="quantity">Quantity:</label>
+                <input type="text" id="quantity" formControlName="price" class="form-control" [ngModel]="order.price">
+            </div>
+            <div class="form-group col-6 d-flex">
+                <label class="m-2" for="quantity">Quantity:</label>
+                <input type="text" id="quantity" formControlName="quantity" class="form-control" [ngModel]="order.quantity">
             </div>
         </div>
-        <button class="btn btn-primary mr-5" type="submit">Submit</button>
+        <div class="row d-flex mb-3">
+            <div class="form-group col-6 d-flex">
+                <!-- <label class="m-2"for="supplier">Supplier:</label>
+                <select class="form-select shadow-none" data-allow-clear="true" tabindex="-1" >
+                    <option value="">Stationary</option>
+                    <option value="">Electronics</option>
+                </select> -->
+                <label class="m-2" for="supplier">Supplier:</label>
+                <input type="text" id="supplier" formControlName="orderDate" class="form-control" [ngModel]="order.orderDate">
+            </div>
+        </div>
+        <button class="btn btn-primary m-2" type="submit">Submit</button>
     </form>
 </div>

@@ -4,7 +4,7 @@
         <strong>Product Details</strong>
     </div>
     <a [routerLink]="['/product/', 'list']"  class="btn btn-primary float-end">Back</a>
-    <strong>Product</strong>
+    <strong>{{product.name}}</strong>
     <div class="card mt-5">
         <table class="table table-striped">
             <thead>
@@ -18,11 +18,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Product.id</td>
-                    <td>Product.price</td>
-                    <td>Product.quantity</td>
-                    <td>Product.category</td>
-                    <td>Product.supplier</td>
+                    <td>{{product.id}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.inStock}}</td>
+                    <td>{{product.categoryName}}</td>
+                    <td>{{product.supplierName}}</td>
                 </tr>
             </tbody>
         </table>

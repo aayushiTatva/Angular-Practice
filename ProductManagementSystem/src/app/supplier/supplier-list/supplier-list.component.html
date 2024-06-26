@@ -18,17 +18,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Supplier.id</td>
-                    <td>Supplier.FirstName</td>
-                    <td>Supplier.LastName</td>
-                    <td>Supplier.Address</td>
-                    <td>Supplier.City</td>
-                    <td>Supplier.ContactNumber</td>
+                <tr *ngFor="let item of supplier">
+                    <td>{{item.id}}</td>
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.contactNumber}}</td>
                     <td>
-                    <a [routerLink]="['/supplier/', 'detail']"  class="btn btn-info text-white m-2">View</a>
-                    <a [routerLink]="['/supplier/', 'edit']"  class="btn btn-primary m-2">Edit</a>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <a [routerLink]="['/supplier/', item.id,'detail']"  class="btn btn-info text-white m-2">View</a>
+                    <a [routerLink]="['/supplier/',item.id, 'edit']"  class="btn btn-primary m-2">Edit</a>
+                    <button type="button" (click)="deletePost(item.id)" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             </tbody>
