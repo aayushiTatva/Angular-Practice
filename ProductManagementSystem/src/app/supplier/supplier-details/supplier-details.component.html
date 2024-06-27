@@ -1,30 +1,36 @@
 <p>supplier-details works!</p>
 <div class="container">
-    <div class="row ">
-        <strong>Supplier Details</strong>
-    </div>
-    <a [routerLink]="['/supplier/', 'list']"  class="btn btn-primary float-end">Back</a>
-    <strong>Supplier</strong>
-    <div class="card mt-5">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>ContactNo.</th>
-                    <th>Address</th>
-                    <th>City</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{supplier.firstName}}</td>
-                    <td>{{supplier.lastName}}</td>
-                    <td>{{supplier.contactNumber}}</td>
-                    <td>{{supplier.address}}</td>
-                    <td>{{supplier.city}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <mat-card>
+        <div class="row">
+            <h2 class="mt-4 ms-2">Supplier List</h2>
+        </div>
+        <mat-card-header class="main">
+            <button mat-flat-button color="primary" class="m-2" [routerLink]="['/supplier/', 'list']"  >Back</button>
+        </mat-card-header>
+        <table mat-table [dataSource]="[supplier]" class="">
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef> <strong>FirstName</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="lastName">
+              <th mat-header-cell *matHeaderCellDef> <strong>LastName</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef> <strong>Address</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+              <th mat-header-cell *matHeaderCellDef> <strong>City</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+            </ng-container>
+            <ng-container matColumnDef="contactNumber">
+              <th mat-header-cell *matHeaderCellDef> <strong>ContactNo.</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="['firstName','lastName','address','city','contactNumber']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['firstName','lastName','address','city','contactNumber'];"></tr>
+
+          </table>
+    </mat-card>
 </div>

@@ -1,29 +1,32 @@
 <p>order-list works!</p>
 <div class="container mt-5">
-    <div class="row">
-        <strong>Order List</strong>
-    </div>
-    <a [routerLink]="['/order/', 'create']"  class="btn btn-primary m-2 float-end">Add</a>
-    <div class="card mt-5">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>OrderDate</th>
-                    <th width="250px">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of order">
-                    <td>{{item.id}}</td>
-                    <td>{{item.orderDate}}</td>
-                    <td>
-                    <a [routerLink]="['/order/', item.id,'detail']"  class="btn btn-info text-white m-2">View</a>
-                    <a [routerLink]="['/order/',item.id, 'edit']"  class="btn btn-primary m-2">Edit</a>
-                    <button type="button" (click)="deletePost(item.id)" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <mat-card>
+        <div class="row">
+            <h2>Order List</h2>
+        </div>
+        <mat-card-header class="main">
+            <button mat-flat-button color="primary" class="m-2" [routerLink]="['/order/', 'create']"  >Add</button>
+        </mat-card-header>
+        <table mat-table [dataSource]="order" class="">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> <strong>Id</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="orderDate">
+              <th mat-header-cell *matHeaderCellDef> <strong>OrderDate</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.orderDate}} </td>
+            </ng-container>
+            <ng-container matColumnDef="action" >
+                <th mat-header-cell *matHeaderCellDef class="main"> <strong>Action</strong> </th>
+                <td mat-cell *matCellDef="let element" class="main"> 
+                    <button mat-flat-button color="primary" class="text-white m-2" [routerLink]="['/order/',element.id, 'detail']"> View</button>
+                    <button mat-flat-button color="primary" class="text-white m-2" [routerLink]="['/order/',element.id, 'edit']"> Edit</button>
+                    <button mat-flat-button color="warn" class="text-white m-2" type="button" (click)="deletePost(element.id)" > Delete</button>
+                </td>
+              </ng-container>
+            <tr mat-header-row *matHeaderRowDef="['id', 'orderDate','action']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['id', 'orderDate','action'];"></tr>
+
+          </table>
+    </mat-card>
 </div>

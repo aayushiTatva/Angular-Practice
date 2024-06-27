@@ -1,50 +1,52 @@
 <p>product-create works!</p>
 <div class="container">
-    <div class="row">
-        <strong>Create new product</strong>
-    </div>
-    <a href="#" routerLink="/product/list" class="btn btn-primary float-end">Back</a>
-    <form [formGroup]="form" (ngSubmit)="submit()" class="mt-5">
-        <div class="row d-flex mb-3">
-            <div class="form-group col-6 d-flex">
-                <label class="m-2" for="name">Name:</label>
-                <input type="text" id="name" formControlName="name" class="form-control">
-            </div>
-            <div class="form-group col-6 d-flex">
-                <label class="m-2" for="price">Price:</label>
-                <input type="text" id="price" formControlName="price" class="form-control">
-            </div>
+    <mat-card>
+        <div class="row">
+            <h2 class="mt-4 ms-2">Add Product</h2>
         </div>
-        <div class="row d-flex mb-3">
-            <div class="form-group col-6 d-flex">
-                <label class="m-2" for="quantity">Quantity:</label>
-                <input type="text" id="quantity" formControlName="inStock" class="form-control">
-            </div>
-            <div class="form-group col-6 d-flex">
-                <!-- <label class="m-2"for="category">Category:</label>
-                <select class="form-select shadow-none" data-allow-clear="true" tabindex="-1" >
-                    <option value="">Stationary</option>
-                    <option value="">Electronics</option>
-                </select> -->
-                <div class="form-group col-6 d-flex">
-                    <label class="m-2" for="category">Category:</label>
-                    <input type="text" id="category" formControlName="categoryId" class="form-control">
+        <mat-card-header class="main">
+            <button mat-flat-button color="primary" class="m-2" [routerLink]="['/product/','list']">Back</button>
+        </mat-card-header>
+        <mat-card-content >
+            <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline" >
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input matInput formControlName="price">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>InStock</mat-label>
+                        <input matInput formControlName="inStock">
+                    </mat-form-field>
                 </div>
             </div>
-        </div>
-        <div class="row d-flex mb-3">
-            <div class="form-group ms-2 col-5 d-flex">
-                <!-- <label class="m-2"for="supplier">Supplier:</label>
-                <select class="form-select shadow-none" data-allow-clear="true" tabindex="-1" >
-                    <option value="">Stationary</option>
-                    <option value="">Electronics</option>
-                </select> -->
-                <div class="form-group col-6 d-flex">
-                    <label class="m-2" for="supplier">Supplier:</label>
-                    <input type="text" id="supplier" formControlName="supplierId" class="form-control">
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <input matInput formControlName="categoryId">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Supplier</mat-label>
+                        <input matInput formControlName="supplierId">
+                    </mat-form-field>
                 </div>
             </div>
-        </div>
-        <button class="btn btn-primary m-2" type="submit" [disabled]="!form.valid">Submit</button>
-    </form>
+            <div>
+                <button mat-flat-button color="primary" class="m-2" type="submit">Submit</button>
+            </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </div>

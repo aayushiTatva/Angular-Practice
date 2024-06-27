@@ -3,11 +3,14 @@ import { RouterLink } from '@angular/router';
 import { Supplier } from '../supplier';
 import { SupplierService } from '../supplier.service';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-supplier-list',
   standalone: true,
-  imports: [RouterLink,CommonModule],
+  imports: [RouterLink,CommonModule,MatCardModule,MatButtonModule,MatTableModule],
   templateUrl: './supplier-list.component.html',
   styleUrl: './supplier-list.component.css'
 })

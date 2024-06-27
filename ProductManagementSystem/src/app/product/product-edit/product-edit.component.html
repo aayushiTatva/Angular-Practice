@@ -1,46 +1,52 @@
 <p>product-edit works!</p>
 <div class="container">
-    <div class="row">
-        <h6 class="text-center">Edit product</h6>
-    </div>
-    <a href="#" routerLink="/product/list" class="btn btn-primary float-end">Back</a>
-    <form [formGroup]="form" (ngSubmit)="submit()"class="mt-5">
-        <div class="row d-flex mb-3">
-            <div class="form-group col-6 d-flex">
-                <label class="m-2" for="name">Name:</label>
-                <input type="text" id="name" formControlName="name" class="form-control" [ngModel]="product.name">
-            </div>
-            <div class="form-group col-6 d-flex">
-                <label class="m-2" for="price">Price:</label>
-                <input type="text" id="price" formControlName="price" class="form-control" [ngModel]="product.price">
-            </div>
+    <mat-card>
+        <div class="row">
+            <h2 class="mt-4 ms-2">Edit Product</h2>
         </div>
-        <div class="row d-flex mb-3">
-            <div class="form-group col-6 d-flex">
-                <label class="m-2" for="quantity">Quantity:</label>
-                <input type="text" id="quantity" formControlName="inStock" class="form-control" [ngModel]="product.inStock">
+        <mat-card-header class="main">
+            <button mat-flat-button color="primary" class="m-2" [routerLink]="['/product/','list']">Back</button>
+        </mat-card-header>
+        <mat-card-content >
+            <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline" >
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name" [ngModel]="product.name">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input matInput formControlName="price" [ngModel]="product.price">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>InStock</mat-label>
+                        <input matInput formControlName="inStock" [ngModel]="product.inStock">
+                    </mat-form-field>
+                </div>
             </div>
-            <div class="form-group col-6 d-flex">
-                <label class="m-2"for="category">Category:</label>
-                <select class="form-select shadow-none"  [ngModel]="product.categoryName">
-                    <option *ngFor="let item of category" [value]="item.id">{{item.name}}</option>
-                </select>
-
-                <label class="m-2" for="category">Category:</label>
-                <input type="text" id="category" formControlName="categoryId" class="form-control" [ngModel]="product.categoryId">
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <input matInput formControlName="categoryId" [ngModel]="product.categoryId">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Supplier</mat-label>
+                        <input matInput formControlName="supplierId" [ngModel]="product.supplierId">
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex mb-3">
-            <div class="form-group col-6 d-flex">
-                <!-- <label class="m-2"for="supplier">Supplier:</label>
-                <select class="form-select shadow-none" data-allow-clear="true" tabindex="-1" >
-                    <option value="">Stationary</option>
-                    <option value="">Electronics</option>
-                </select> -->
-                <label class="m-2" for="supplier">Supplier:</label>
-                <input type="text" id="supplier" formControlName="supplierId" class="form-control" [ngModel]="product.supplierId">
+            <div>
+                <button mat-flat-button color="primary" class="m-2" type="submit">Submit</button>
             </div>
-        </div>
-        <button class="btn btn-primary m-2" type="submit">Submit</button>
-    </form>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </div>

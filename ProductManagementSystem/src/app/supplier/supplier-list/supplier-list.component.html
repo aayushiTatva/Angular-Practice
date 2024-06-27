@@ -1,37 +1,48 @@
 <p>supplier-list works!</p>
 <div class="container mt-5">
-    <div class="row">
-        <strong>Supplier List</strong>
-    </div>
-    <a [routerLink]="['/supplier/', 'create']"  class="btn btn-primary m-2 alogn-self-right">Add</a>
-    <div class="card">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>ContactNumber</th>
-                    <th width="250px">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of supplier">
-                    <td>{{item.id}}</td>
-                    <td>{{item.firstName}}</td>
-                    <td>{{item.lastName}}</td>
-                    <td>{{item.address}}</td>
-                    <td>{{item.city}}</td>
-                    <td>{{item.contactNumber}}</td>
-                    <td>
-                    <a [routerLink]="['/supplier/', item.id,'detail']"  class="btn btn-info text-white m-2">View</a>
-                    <a [routerLink]="['/supplier/',item.id, 'edit']"  class="btn btn-primary m-2">Edit</a>
-                    <button type="button" (click)="deletePost(item.id)" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <mat-card>
+        <div class="row">
+            <h2 class="mt-4 ms-2">Supplier List</h2>
+        </div>
+        <mat-card-header class="main">
+            <button mat-flat-button color="primary" class="m-2" [routerLink]="['/supplier/', 'create']"  >Add</button>
+        </mat-card-header>
+        <table mat-table [dataSource]="supplier" class="">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> <strong>Id</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef> <strong>FirstName</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="lastName">
+              <th mat-header-cell *matHeaderCellDef> <strong>LastName</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef> <strong>Address</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+              <th mat-header-cell *matHeaderCellDef> <strong>City</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+            </ng-container>
+            <ng-container matColumnDef="contactNumber">
+              <th mat-header-cell *matHeaderCellDef> <strong>ContactNo.</strong> </th>
+              <td mat-cell *matCellDef="let element"> {{element.contactNumber}} </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> <strong>Action</strong> </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button mat-flat-button color="primary" class="text-white m-2" [routerLink]="['/supplier/',element.id, 'detail']"> View</button>
+                    <button mat-flat-button color="primary" class="text-white m-2" [routerLink]="['/supplier/',element.id, 'edit']"> Edit</button>
+                    <button mat-flat-button color="warn" class="text-white m-2" type="button" (click)="deletePost(element.id)" > Delete</button>
+                </td>
+              </ng-container>
+            <tr mat-header-row *matHeaderRowDef="['id', 'firstName','lastName','address','city','contactNumber','action']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['id', 'firstName','lastName','address','city','contactNumber','action'];"></tr>
+
+          </table>
+    </mat-card>
 </div>

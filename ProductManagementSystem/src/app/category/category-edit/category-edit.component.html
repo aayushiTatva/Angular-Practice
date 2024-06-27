@@ -1,16 +1,21 @@
-<p>category-edit works!</p>
 <div class="container">
-    <div class="row">
-        <h6 class="text-center">Edit category</h6>
-    </div>
-    <a href="#" routerLink="/category/list" class="btn btn-primary float-end">Back</a>
-    <form [formGroup]="form" (ngSubmit)="submit()" class="mt-5">
-        <div class="row d-flex mb-3">
-            <div class="form-group col-4 d-flex">
-                <label class="m-2" for="name">Name:</label>
-                <input type="text" id="name" formControlName="name" class="form-control" [ngModel]="category.name">
-            </div>
+    <mat-card>
+        <div class="row">
+            <h2 class="mt-4 ms-2">Edit Category</h2>
         </div>
-        <button class="btn btn-primary mr-5" type="submit">Submit</button>
-    </form>
+        <mat-card-header class="main">
+            <button mat-flat-button color="primary" class="m-2" [routerLink]="['/category/','list']">Back</button>
+        </mat-card-header>
+        <mat-card-content >
+            <form [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field appearance="outline" >
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" [ngModel]="category.name">
+            </mat-form-field>
+            <div>
+                <button mat-flat-button color="primary" class="m-2" type="submit">Submit</button>
+            </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </div>

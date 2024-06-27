@@ -4,11 +4,15 @@ import { Order } from '../order';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OrderService } from '../order.service';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-order-edit',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule,CommonModule],
+  imports: [RouterLink, ReactiveFormsModule,MatCardModule,MatButtonModule,MatFormFieldModule,MatInputModule],
   templateUrl: './order-edit.component.html',
   styleUrl: './order-edit.component.css'
 })

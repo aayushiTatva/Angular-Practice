@@ -4,11 +4,15 @@ import { Supplier } from '../supplier';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SupplierService } from '../supplier.service';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-supplier-edit',
   standalone: true,
-  imports: [RouterLink,ReactiveFormsModule],
+  imports: [RouterLink,ReactiveFormsModule,MatCardModule,MatButtonModule,MatFormFieldModule,MatInputModule],
   templateUrl: './supplier-edit.component.html',
   styleUrl: './supplier-edit.component.css'
 })
